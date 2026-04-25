@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # Dependencies
 node_modules/
 package-lock.json
@@ -31,3 +32,32 @@ backend/uploads/
 
 # Test coverage
 coverage/
+=======
+node_modules/
+.env
+.env.local
+.env.*.local
+dist/
+build/
+*.log
+.DS_Store
+.idea/
+.vscode/
+coverage/
+uploads/
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.Python
+venv/
+env/
+ENV/
+.venv
+.pytest_cache/
+.coverage
+htmlcov/
+*.egg-info/
+dist/
+build/
+>>>>>>> 1fc1d98 (updated code)

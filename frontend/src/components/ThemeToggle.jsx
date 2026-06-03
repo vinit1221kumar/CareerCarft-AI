@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 
 export default function ThemeToggle() {
+<<<<<<< HEAD
   const [theme, setTheme] = useState('light');
   const [mounted, setMounted] = useState(false);
 
@@ -37,6 +38,30 @@ export default function ThemeToggle() {
       title={`Switch to ${theme === 'light' ? 'dark' : 'light'} mode`}
     >
       {theme === 'light' ? '🌙' : '☀️'}
+=======
+  const [mode, setMode] = useState(() => {
+    if (typeof window === 'undefined') return 'light';
+    return localStorage.getItem('cc-theme') || 'light';
+  });
+
+  useEffect(() => {
+    const root = document.documentElement;
+    if (mode === 'dark') {
+      root.classList.add('dark');
+    } else {
+      root.classList.remove('dark');
+    }
+    localStorage.setItem('cc-theme', mode);
+  }, [mode]);
+
+  return (
+    <button
+      aria-label="Toggle theme"
+      onClick={() => setMode((m) => (m === 'dark' ? 'light' : 'dark'))}
+      className="cc-theme-toggle"
+    >
+      {mode === 'dark' ? '🌙' : '☀️'}
+>>>>>>> 911aeed (new commit)
     </button>
   );
 }

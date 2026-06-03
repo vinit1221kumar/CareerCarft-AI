@@ -1,6 +1,8 @@
 import { useMemo, useState } from 'react';
 import ThemeToggle from './components/ThemeToggle';
 import { analyzeResume, generateRoadmap, getInsights, getResumeById, uploadResume } from './api/client';
+import Layout from './components/Layout';
+import { Button, Card } from './components';
 
 const initialForm = {
   userId: 'user123',
@@ -99,6 +101,7 @@ function App() {
   };
 
   return (
+<<<<<<< HEAD
     <div className="app-shell">
       <header className="header">
         <div>
@@ -115,25 +118,65 @@ function App() {
         <div className="grid">
           <label>
             User ID
+=======
+    <Layout>
+      <section className="cc-hero">
+        <div className="cc-hero-copy">
+          <span className="cc-kicker">AI Career Command Center</span>
+          <h2>Turn a plain resume into a bold growth plan.</h2>
+          <p>
+            Upload a resume, map your target role, and let CareerCraft generate a sharper skill
+            analysis, roadmap, and insight snapshot in one flow.
+          </p>
+
+          <div className="cc-hero-chips">
+            <span>Resume scoring</span>
+            <span>Skill gap detection</span>
+            <span>Weekly roadmap</span>
+          </div>
+        </div>
+
+        <div className="cc-hero-panel">
+          <div className="cc-mini-card">
+            <span className="cc-mini-label">Target track</span>
+            <strong>{form.targetRole}</strong>
+            <p>{parsedTargetSkills.slice(0, 3).join(' • ')}</p>
+          </div>
+          <div className="cc-mini-card accent">
+            <span className="cc-mini-label">Timeline</span>
+            <strong>{form.durationWeeks} weeks</strong>
+            <p>Structured milestones with practical pacing.</p>
+          </div>
+        </div>
+      </section>
+
+      <Card title="Launch Your Career Sprint" className="cc-input-card">
+        <div className="cc-grid">
+          <label className="cc-field">
+            <span>User ID</span>
+>>>>>>> 911aeed (new commit)
             <input
+              className="cc-input"
               value={form.userId}
               onChange={(event) => updateForm('userId', event.target.value)}
               placeholder="user123"
             />
           </label>
 
-          <label>
-            Target Role
+          <label className="cc-field">
+            <span>Target Role</span>
             <input
+              className="cc-input"
               value={form.targetRole}
               onChange={(event) => updateForm('targetRole', event.target.value)}
               placeholder="Backend Engineer"
             />
           </label>
 
-          <label>
-            Duration (Weeks)
+          <label className="cc-field">
+            <span>Duration (Weeks)</span>
             <input
+              className="cc-input"
               type="number"
               min="4"
               max="8"
@@ -142,18 +185,20 @@ function App() {
             />
           </label>
 
-          <label>
-            Target Skills (comma-separated)
+          <label className="cc-field">
+            <span>Target Skills</span>
             <input
+              className="cc-input"
               value={form.targetSkills}
               onChange={(event) => updateForm('targetSkills', event.target.value)}
               placeholder="node,mongodb,system design"
             />
           </label>
 
-          <label className="full">
-            Resume File (PDF/DOCX)
+          <label className="cc-field full">
+            <span>Resume File (PDF/DOCX)</span>
             <input
+              className="cc-file-input"
               type="file"
               accept=".pdf,.docx"
               onChange={(event) => setSelectedFile(event.target.files?.[0] || null)}
@@ -161,17 +206,26 @@ function App() {
           </label>
         </div>
 
-        <div className="actions">
-          <button onClick={handleRunPipeline} disabled={isLoading}>
-            {isLoading ? 'Processing...' : 'Upload + Analyze + Generate Roadmap'}
-          </button>
-          <span className="status">Status: {statusMessage}</span>
+        <div className="cc-actions">
+          <Button loading={isLoading} onClick={handleRunPipeline}>
+            {isLoading ? 'Processing...' : 'Build My Roadmap'}
+          </Button>
+          <div className="cc-status-wrap">
+            <span className="cc-status-pill">{statusMessage}</span>
+            <span className="cc-status-note">
+              {selectedFile ? `Selected: ${selectedFile.name}` : 'Add a resume to start the pipeline.'}
+            </span>
+          </div>
         </div>
-        {errorMessage ? <p className="error">{errorMessage}</p> : null}
-      </section>
+        {errorMessage ? <p className="cc-error">{errorMessage}</p> : null}
+      </Card>
 
+<<<<<<< HEAD
       <section className="card size-small">
         <h2>Resume</h2>
+=======
+      <Card title="Resume">
+>>>>>>> 911aeed (new commit)
         {resume ? (
           <div className="details">
             <p><strong>File:</strong> {resume.originalName}</p>
@@ -179,24 +233,36 @@ function App() {
             <p><strong>Words:</strong> {resume.metadata?.wordCount || 0}</p>
             <p><strong>Text Length:</strong> {resume.metadata?.textLength || 0}</p>
           </div>
-        ) : <p>No resume uploaded yet.</p>}
-      </section>
+        ) : (
+          <p>No resume uploaded yet.</p>
+        )}
+      </Card>
 
+<<<<<<< HEAD
       <section className="card size-medium">
         <h2>Analysis</h2>
+=======
+      <Card title="Analysis">
+>>>>>>> 911aeed (new commit)
         {analysis ? (
-          <div className="details">
+          <div className="details space-y-2">
             <p><strong>Candidate:</strong> {analysis.candidate_name || 'N/A'}</p>
             <p><strong>Email:</strong> {analysis.candidate_email || 'N/A'}</p>
             <p><strong>Score:</strong> {analysis.resume_score?.overall || 0} ({analysis.resume_score?.grade || 'N/A'})</p>
             <p><strong>Skills:</strong> {(analysis.skills || []).slice(0, 12).join(', ') || 'None detected'}</p>
             <p><strong>Suggestions:</strong> {(analysis.improvement_suggestions || []).join(' | ') || 'N/A'}</p>
           </div>
-        ) : <p>No analysis available yet.</p>}
-      </section>
+        ) : (
+          <p>No analysis available yet.</p>
+        )}
+      </Card>
 
+<<<<<<< HEAD
       <section className="card size-large">
         <h2>Roadmap</h2>
+=======
+      <Card title="Roadmap">
+>>>>>>> 911aeed (new commit)
         {roadmap ? (
           <div className="details">
             <p><strong>Title:</strong> {roadmap.roadmapTitle}</p>
@@ -209,13 +275,19 @@ function App() {
               ))}
             </ul>
           </div>
-        ) : <p>No roadmap generated yet.</p>}
-      </section>
+        ) : (
+          <p>No roadmap generated yet.</p>
+        )}
+      </Card>
 
+<<<<<<< HEAD
       <section className="card size-large">
         <h2>Dashboard Insights</h2>
+=======
+      <Card title="Dashboard Insights">
+>>>>>>> 911aeed (new commit)
         {insights ? (
-          <div className="details">
+          <div className="details space-y-2">
             <p><strong>Summary:</strong> {insights.summary || 'N/A'}</p>
             <p><strong>Matched Skills:</strong> {insights.metrics?.matchedSkills || 0}</p>
             <p><strong>Missing Skills:</strong> {insights.metrics?.missingSkills || 0}</p>
@@ -223,9 +295,11 @@ function App() {
             <p><strong>Readiness:</strong> {insights.metrics?.roadmapReadiness || 0}</p>
             <p><strong>Top Gaps:</strong> {(insights.skillGaps || []).slice(0, 5).map((gap) => gap.skill).join(', ') || 'N/A'}</p>
           </div>
-        ) : <p>No insights generated yet.</p>}
-      </section>
-    </div>
+        ) : (
+          <p>No insights generated yet.</p>
+        )}
+      </Card>
+    </Layout>
   );
 }
 

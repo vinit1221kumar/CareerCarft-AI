@@ -1,6 +1,6 @@
 # CareerCraft AI - Resume Analyzer & Career Roadmap Platform
 
-<<<<<<< HEAD
+
 ## Overview
 A comprehensive AI-powered platform for resume analysis, skill gap identification, and personalized career roadmap generation. Built with the MERN stack and powered by HuggingFace AI models.
 
@@ -385,4 +385,4 @@ Required Atlas setup:
 ## 📄 License
 
 MIT
->>>>>>> 1fc1d98 (updated code)
+

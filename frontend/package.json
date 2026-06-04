@@ -9,15 +9,21 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@tanstack/react-query": "^5.101.0",
+    "axios": "^1.17.0",
+    "lucide-react": "^1.17.0",
     "react": "^18.3.1",
-    "react-dom": "^18.3.1"
+    "react-dom": "^18.3.1",
+    "react-router-dom": "^7.16.0",
+    "recharts": "^3.8.1",
+    "zustand": "^5.0.14"
   },
   "devDependencies": {
+    "@tailwindcss/postcss": "^4.3.0",
     "@vitejs/plugin-react": "^4.3.1",
-    "vite": "^5.4.2",
-    "tailwindcss": "latest",
-    "@tailwindcss/postcss": "latest",
+    "autoprefixer": "^10.4.14",
     "postcss": "^8.4.21",
-    "autoprefixer": "^10.4.14"
+    "tailwindcss": "latest",
+    "vite": "^5.4.2"
   }
 }

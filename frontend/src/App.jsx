@@ -1,7 +1,6 @@
 import { useMemo, useState } from 'react';
 import ThemeToggle from './components/ThemeToggle';
 import { analyzeResume, generateRoadmap, getInsights, getResumeById, uploadResume } from './api/client';
-import Layout from './components/Layout';
 import { Button, Card } from './components';
 
 const initialForm = {
@@ -101,19 +100,18 @@ function App() {
   };
 
   return (
-
-    <div className="app-shell">
-      <header className="header">
-        <div>
-          <h1>CareerCraft AI</h1>
-          <p>Resume Analyzer & Career Roadmap Platform</p>
+    <div className="cc-container">
+      <header className="cc-topbar">
+        <div className="cc-brand">
+          <span className="cc-brand-mark">CC</span>
+          <h1 className="cc-header-title">CareerCraft AI</h1>
+          <p className="cc-subtitle">Resume Analyzer & Career Roadmap Platform</p>
         </div>
-        <div className="header-nav">
+        <div className="flex items-center gap-3">
           <ThemeToggle />
         </div>
       </header>
 
-    <Layout>
       <section className="cc-hero">
         <div className="cc-hero-copy">
           <span className="cc-kicker">AI Career Command Center</span>
@@ -272,7 +270,10 @@ function App() {
           <p>No insights generated yet.</p>
         )}
       </Card>
-    </Layout>
+
+      <footer className="cc-footer">
+        © {new Date().getFullYear()} CareerCraft AI — Built for growth.
+      </footer>
     </div>
   );
 }

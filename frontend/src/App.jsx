@@ -101,7 +101,7 @@ function App() {
   };
 
   return (
-<<<<<<< HEAD
+
     <div className="app-shell">
       <header className="header">
         <div>
@@ -118,7 +118,7 @@ function App() {
         <div className="grid">
           <label>
             User ID
-=======
+
     <Layout>
       <section className="cc-hero">
         <div className="cc-hero-copy">
@@ -154,7 +154,7 @@ function App() {
         <div className="cc-grid">
           <label className="cc-field">
             <span>User ID</span>
->>>>>>> 911aeed (new commit)
+
             <input
               className="cc-input"
               value={form.userId}
@@ -220,12 +220,12 @@ function App() {
         {errorMessage ? <p className="cc-error">{errorMessage}</p> : null}
       </Card>
 
-<<<<<<< HEAD
+
       <section className="card size-small">
         <h2>Resume</h2>
-=======
+
       <Card title="Resume">
->>>>>>> 911aeed (new commit)
+
         {resume ? (
           <div className="details">
             <p><strong>File:</strong> {resume.originalName}</p>
@@ -238,12 +238,12 @@ function App() {
         )}
       </Card>
 
-<<<<<<< HEAD
+
       <section className="card size-medium">
         <h2>Analysis</h2>
-=======
+
       <Card title="Analysis">
->>>>>>> 911aeed (new commit)
+
         {analysis ? (
           <div className="details space-y-2">
             <p><strong>Candidate:</strong> {analysis.candidate_name || 'N/A'}</p>
@@ -257,12 +257,12 @@ function App() {
         )}
       </Card>
 
-<<<<<<< HEAD
+
       <section className="card size-large">
         <h2>Roadmap</h2>
-=======
+
       <Card title="Roadmap">
->>>>>>> 911aeed (new commit)
+
         {roadmap ? (
           <div className="details">
             <p><strong>Title:</strong> {roadmap.roadmapTitle}</p>
@@ -280,12 +280,12 @@ function App() {
         )}
       </Card>
 
-<<<<<<< HEAD
+
       <section className="card size-large">
         <h2>Dashboard Insights</h2>
-=======
+
       <Card title="Dashboard Insights">
->>>>>>> 911aeed (new commit)
+
         {insights ? (
           <div className="details space-y-2">
             <p><strong>Summary:</strong> {insights.summary || 'N/A'}</p>
